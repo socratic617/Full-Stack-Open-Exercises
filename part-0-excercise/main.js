@@ -1,4 +1,7 @@
-function addNote() {
+document.getElementById("noteForm").addEventListener("submit", function (event) {
+  // Prevent the default form submission
+  event.preventDefault();
+
   // Get the input value
   var noteText = document.getElementById("noteInput").value;
 
@@ -11,4 +14,4 @@ function addNote() {
 
   // Clear the input field
   document.getElementById("noteInput").value = "";
-}
+});
