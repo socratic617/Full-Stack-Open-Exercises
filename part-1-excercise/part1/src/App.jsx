@@ -76,3 +76,29 @@ const App = () => {
       }
     ]
   }
+
+  return (
+    <div>
+      <h1>{course.name}</h1>
+      <Content parts={course.parts}/>
+    </div>
+  )
+}
+const Content = ({ parts }) => {
+  return (
+    <div>
+      {parts.map(part =>
+        <Part key={part.name} name={part.name} exercises={part.exercises} />
+      )}
+    </div>
+  )
+}
+
+const Part = ({ name, exercises }) => {
+  return (
+    <p>
+      {name} - Exercises: {exercises}
+    </p>
+  )
+}
+export default App
