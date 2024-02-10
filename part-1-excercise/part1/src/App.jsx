@@ -132,6 +132,27 @@
 
 // adding component helper function
 
+// const Hello = (props) => {
+
+//   const bornYear = () => {
+//     const yearNow = new Date().getFullYear()
+//     return yearNow - props.age
+//   }
+
+//   return (
+//     <div>
+//       <p>
+//         Hello {props.name}, you are {props.age} years old
+//       </p>
+
+//       <p>So you were probably born in {bornYear()}</p>
+//     </div>
+//   )
+// }
+
+// export default Hello
+
+//adding another helper component to calculate age of person being greeted
 const Hello = (props) => {
 
   const bornYear = () => {
@@ -149,5 +170,4 @@ const Hello = (props) => {
     </div>
   )
 }
-
 export default Hello
