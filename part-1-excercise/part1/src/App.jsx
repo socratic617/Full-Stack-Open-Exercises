@@ -150,4 +150,4 @@ const Hello = (props) => {
   )
 }
 
-export default App
+export default Hello
