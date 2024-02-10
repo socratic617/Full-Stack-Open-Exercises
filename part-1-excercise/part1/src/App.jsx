@@ -153,21 +153,49 @@
 // export default Hello
 
 //adding another helper component to calculate age of person being greeted
+// const Hello = (props) => {
+
+//   const bornYear = () => {
+//     const yearNow = new Date().getFullYear()
+//     return yearNow - props.age
+//   }
+
+//   return (
+//     <div>
+//       <p>
+//         Hello {props.name}, you are {props.age} years old
+//       </p>
+
+//       <p>So you were probably born in {bornYear()}</p>
+//     </div>
+//   )
+// }
+// export default Hello
+
+
+//Destructuring section 
+props = {
+  name: 'Arto Hellas',
+  age: 35,
+} 
+
+// do this destructing that 
+// we can streamline our component by assigning the values of the properties directly into two variables name and age which we can then use in our code:
 const Hello = (props) => {
 
-  const bornYear = () => {
-    const yearNow = new Date().getFullYear()
-    return yearNow - props.age
-  }
+  const name = props.name
+  const age = props.age
+
+
+  const bornYear = () => new Date().getFullYear() - age
 
   return (
     <div>
-      <p>
-        Hello {props.name}, you are {props.age} years old
-      </p>
 
+      <p>Hello {name}, you are {age} years old</p>
       <p>So you were probably born in {bornYear()}</p>
     </div>
   )
 }
+
 export default Hello
