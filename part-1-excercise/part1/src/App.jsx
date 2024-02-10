@@ -55,50 +55,77 @@
 // }
 
 // export default App
-
+//***************************************************************** */
 //Excercise 1.5 Chapter 1
 
+// const App = () => {
+//   const course = {
+//     name: 'Half Stack application development',
+//     parts: [
+//       {
+//         name: 'Fundamentals of React',
+//         exercises: 10
+//       },
+//       {
+//         name: 'Using props to pass data',
+//         exercises: 7
+//       },
+//       {
+//         name: 'State of a component',
+//         exercises: 14
+//       }
+//     ]
+//   }
+
+//   return (
+//     <div>
+//       <h1>{course.name}</h1>
+//       <Content parts={course.parts}/>
+//     </div>
+//   )
+// }
+// const Content = ({ parts }) => {
+//   return (
+//     <div>
+//       {parts.map(part =>
+//         <Part key={part.name} name={part.name} exercises={part.exercises} />
+//       )}
+//     </div>
+//   )
+// }
+
+// const Part = ({ name, exercises }) => {
+//   return (
+//     <p>
+//       {name} - Exercises: {exercises}
+//     </p>
+//   )
+// }
+// export default App
+
+//**************************************************************************** */
+//chapter 1 part c
+
+const Hello = (props) => {
+  return (
+    <div>
+      <p>
+        Hello {props.name}, you are {props.age} years old
+      </p>
+    </div>
+  )
+}
+
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
-  }
+  const name = 'Peter'
+  const age = 10
 
   return (
     <div>
-      <h1>{course.name}</h1>
-      <Content parts={course.parts}/>
+      <h1>Greetings</h1>
+      <Hello name="Maya" age={26 + 10} />
+      <Hello name={name} age={age} />
     </div>
-  )
-}
-const Content = ({ parts }) => {
-  return (
-    <div>
-      {parts.map(part =>
-        <Part key={part.name} name={part.name} exercises={part.exercises} />
-      )}
-    </div>
-  )
-}
-
-const Part = ({ name, exercises }) => {
-  return (
-    <p>
-      {name} - Exercises: {exercises}
-    </p>
   )
 }
 export default App
