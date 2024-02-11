@@ -172,30 +172,98 @@
 // }
 // export default Hello
 
+//_________________________________________________________________
 
 //Destructuring section 
-props = {
-  name: 'Arto Hellas',
-  age: 35,
-} 
+// props = {
+//   name: 'Arto Hellas',
+//   age: 35,
+// } 
 
-// do this destructing that 
-// we can streamline our component by assigning the values of the properties directly into two variables name and age which we can then use in our code:
-const Hello = (props) => {
+// // do this destructing that 
+// // we can streamline our component by assigning the values of the properties directly into two variables name and age which we can then use in our code:
+// const Hello = (props) => {
 
-  const name = props.name
-  const age = props.age
+//   const name = props.name
+//   const age = props.age
 
 
-  const bornYear = () => new Date().getFullYear() - age
+//   const bornYear = () => new Date().getFullYear() - age
+
+//   return (
+//     <div>
+
+//       <p>Hello {name}, you are {age} years old</p>
+//       <p>So you were probably born in {bornYear()}</p>
+//     </div>
+//   )
+// }
+
+// export default Hello
+
+//************************************************************************* */
+
+//Chapter 1 Part D Excercise 1.6
+
+import { useState } from 'react'
+
+const App = () => {
+  // save clicks of each button to its own state
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
 
   return (
     <div>
-
-      <p>Hello {name}, you are {age} years old</p>
-      <p>So you were probably born in {bornYear()}</p>
+      code here
     </div>
   )
 }
 
-export default Hello
+export default App
+
+//************************************************************************ */
+//Excercise 4.1
+
+// const express = require('express')
+// const app = express()
+// const cors = require('cors')
+// const mongoose = require('mongoose')
+
+// const blogSchema = new mongoose.Schema({
+//   title: String,
+//   author: String,
+//   url: String,
+//   likes: Number
+// })
+
+// const Blog = mongoose.model('Blog', blogSchema)
+
+// const mongoUrl = 'mongodb://localhost/bloglist'
+// mongoose.connect(mongoUrl)
+
+// app.use(cors())
+// app.use(express.json())
+
+// app.get('/api/blogs', (request, response) => {
+//   Blog
+//     .find({})
+//     .then(blogs => {
+//       response.json(blogs)
+//     })
+// })
+
+// app.post('/api/blogs', (request, response) => {
+//   const blog = new Blog(request.body)
+
+//   blog
+//     .save()
+//     .then(result => {
+//       response.status(201).json(result)
+//     })
+// })
+
+// const PORT = 3003
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`)
+// })
