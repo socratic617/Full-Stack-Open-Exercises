@@ -215,7 +215,15 @@ const App = () => {
 
   return (
     <div>
-      code here
+      <h1>give feedback</h1>
+      <button>good</button> 
+      <button>nuetral</button>
+      <button>bad</button>
+      <h2>Statistics</h2>
+      <p>good 6</p>
+      <p>nuetral 2</p>
+      <p>bad 1</p>
+      
     </div>
   )
 }
