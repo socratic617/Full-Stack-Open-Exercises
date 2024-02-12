@@ -369,124 +369,84 @@
 
 //************************************************************************ */
 //Excercise 1.10
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-const App = () => {
-  // save clicks of each button to its own state
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+// const App = () => {
+//   // save clicks of each button to its own state
+//   const [good, setGood] = useState(0);
+//   const [neutral, setNeutral] = useState(0);
+//   const [bad, setBad] = useState(0);
 
-  const Statistics = ({ good, neutral, bad }) => {
-    const all = good + neutral + bad;
-    const average = all === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / all;
-    const positive = all === 0 ? 0 : (good / all) * 100;
+//   const Statistics = ({ good, neutral, bad }) => {
+//     const all = good + neutral + bad;
+//     const average = all === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / all;
+//     const positive = all === 0 ? 0 : (good / all) * 100;
 
-    if (all === 0) {
-      return (
-        <div>
-          <h2>Statistics</h2>
-          <p>No feedback given</p>
-        </div>
-      );
-    }
+//     if (all === 0) {
+//       return (
+//         <div>
+//           <h2>Statistics</h2>
+//           <p>No feedback given</p>
+//         </div>
+//       );
+//     }
 
-    return (
-      <div>
-        <h2>Statistics</h2>
-        <p>Good: {good}</p>
-        <p>Neutral: {neutral}</p>
-        <p>Bad: {bad}</p>
-        <p>All: {all}</p>
-        <p>Average: {average.toFixed(2)}</p>
-        <p>Positive: {positive.toFixed(2)}%</p>
-      </div>
-    );
-  };
+//     return (
+//       <div>
+//         <h2>Statistics</h2>
+//         <p>Good: {good}</p>
+//         <p>Neutral: {neutral}</p>
+//         <p>Bad: {bad}</p>
+//         <p>All: {all}</p>
+//         <p>Average: {average.toFixed(2)}</p>
+//         <p>Positive: {positive.toFixed(2)}%</p>
+//       </div>
+//     );
+//   };
 
-  const handleGoodClick = () => {
-    setGood(good + 1);
-  };
+//   const handleGoodClick = () => {
+//     setGood(good + 1);
+//   };
 
-  const handleNeutralClick = () => {
-    setNeutral(neutral + 1);
-  };
+//   const handleNeutralClick = () => {
+//     setNeutral(neutral + 1);
+//   };
 
-  const handleBadClick = () => {
-    setBad(bad + 1);
-  };
+//   const handleBadClick = () => {
+//     setBad(bad + 1);
+//   };
 
-  return (
-    <div>
-      <h1>give feedback</h1>
-      <button id="buttonone" onClick={handleGoodClick}>good</button>
-      <button id="buttontwo" onClick={handleNeutralClick}>neutral</button>
-      <button id="buttonthree" onClick={handleBadClick}>bad</button>
-      <Statistics good={good} neutral={neutral} bad={bad} />
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <h1>give feedback</h1>
+//       <button id="buttonone" onClick={handleGoodClick}>good</button>
+//       <button id="buttontwo" onClick={handleNeutralClick}>neutral</button>
+//       <button id="buttonthree" onClick={handleBadClick}>bad</button>
+//       <Statistics good={good} neutral={neutral} bad={bad} />
+//     </div>
+//   );
+// };
 
-export default App;
+// export default App;
 //************************************************************************ */
 //Excercise 1.11
-
 import React, { useState } from 'react';
+
+const Button = ({ handleClick, text }) => (
+  <button onClick={handleClick}>{text}</button>
+);
+
+const StatisticLine = ({ text, value }) => (
+  <p>
+    {text}: {value}
+  </p>
+);
 
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-
-  const Statistics = ({ good, neutral, bad }) => {
-    const all = good + neutral + bad;
-    const average = all === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / all;
-    const positive = all === 0 ? 0 : (good / all) * 100;
-
-    if (all === 0) {
-      return (
-        <div>
-          <h2>Statistics</h2>
-          <p>No feedback given</p>
-        </div>
-      );
-    }
-
-    return (
-      <div>
-        <h2>Statistics</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td>Good:</td>
-              <td>{good}</td>
-            </tr>
-            <tr>
-              <td>Neutral:</td>
-              <td>{neutral}</td>
-            </tr>
-            <tr>
-              <td>Bad:</td>
-              <td>{bad}</td>
-            </tr>
-            <tr>
-              <td>All:</td>
-              <td>{all}</td>
-            </tr>
-            <tr>
-              <td>Average:</td>
-              <td>{average.toFixed(2)}</td>
-            </tr>
-            <tr>
-              <td>Positive:</td>
-              <td>{positive.toFixed(2)}%</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    );
-  };
 
   const handleGoodClick = () => {
     setGood(good + 1);
@@ -500,18 +460,37 @@ const App = () => {
     setBad(bad + 1);
   };
 
+  const all = good + neutral + bad;
+  const average = all === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / all;
+  const positive = all === 0 ? 0 : (good / all) * 100;
+
   return (
     <div>
       <h1>give feedback</h1>
-      <button id="buttonone" onClick={handleGoodClick}>good</button>
-      <button id="buttontwo" onClick={handleNeutralClick}>neutral</button>
-      <button id="buttonthree" onClick={handleBadClick}>bad</button>
-      <Statistics good={good} neutral={neutral} bad={bad} />
+      <Button handleClick={handleGoodClick} text="good" />
+      <Button handleClick={handleNeutralClick} text="neutral" />
+      <Button handleClick={handleBadClick} text="bad" />
+      <div>
+        <h2>Statistics</h2>
+        {all === 0 ? (
+          <p>No feedback given</p>
+        ) : (
+          <div>
+            <StatisticLine text="Good" value={good} />
+            <StatisticLine text="Neutral" value={neutral} />
+            <StatisticLine text="Bad" value={bad} />
+            <StatisticLine text="All" value={all} />
+            <StatisticLine text="Average" value={average.toFixed(2)} />
+            <StatisticLine text="Positive" value={`${positive.toFixed(2)}%`} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 export default App;
+
 
 //************************************************************************ */
 //Excercise 1.12
