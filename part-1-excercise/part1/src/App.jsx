@@ -244,66 +244,126 @@
 
 //Chapter 1 Part D Excercise 1.7
 
-import React, { useState } from 'react';
+// summary of the changes:
 
-const App = () => {
-  // save clicks of each button to its own state
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
-  const [all, setAll] = useState(0);
-  const [average, setAverage] = useState(0);
-  const [positive, setPositive] = useState(0);
+// Added all state to keep track of the total number of feedbacks.
+// Updated click handlers for good, neutral, and bad buttons to increment the all count.
+// Used useEffect to recalculate average and positive whenever the feedbacks change.This hook watches for changes in good, neutral, and bad.
+// Displayed positive as a percentage by appending % in the JSX.
 
-  const handleGoodClick = () => {
-    setGood(good + 1);
-    setAll(all + 1);
-  };
+// import React, { useState } from 'react';
 
-  const handleNeutralClick = () => {
-    setNeutral(neutral + 1);
-    setAll(all + 1);
-  };
+// const App = () => {
+//   // save clicks of each button to its own state
+//   const [good, setGood] = useState(0);
+//   const [neutral, setNeutral] = useState(0);
+//   const [bad, setBad] = useState(0);
+//   const [all, setAll] = useState(0);
+//   const [average, setAverage] = useState(0);
+//   const [positive, setPositive] = useState(0);
 
-  const handleBadClick = () => {
-    setBad(bad + 1);
-    setAll(all +1)
-  };
+//   const handleGoodClick = () => {
+//     setGood(good + 1);
+//     setAll(all + 1);
+//   };
 
+//   const handleNeutralClick = () => {
+//     setNeutral(neutral + 1);
+//     setAll(all + 1);
+//   };
 
-  // Calculate average and positive percentage whenever the feedback changes
-  React.useEffect(() => {
-    const totalFeedback = good + neutral + bad;
-    const avg = totalFeedback === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / totalFeedback;
-    setAverage(avg.toFixed(2));
-
-    const positivePercent = totalFeedback === 0 ? 0 : (good / totalFeedback) * 100;
-    setPositive(positivePercent.toFixed(2));
-  }, [good, neutral, bad]);
-
-  return (
-    <div>
-      <h1>give feedback</h1>
-      <button id="buttonone" onClick={handleGoodClick}>good</button>
-      <button id="buttontwo" onClick={handleNeutralClick}>neutral</button>
-      <button id="buttonthree" onClick={handleBadClick}>bad</button>
-      <h2>Statistics</h2>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>All: {all}</p>
-      <p>Average: {average}</p>
-      <p>Positive: {positive}%</p>
-    </div>
-  );
-};
-
-export default App;
+//   const handleBadClick = () => {
+//     setBad(bad + 1);
+//     setAll(all +1)
+//   };
 
 
+//   // Calculate average and positive percentage whenever the feedback changes
+//   React.useEffect(() => {
+//     const totalFeedback = good + neutral + bad;
+//     const avg = totalFeedback === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / totalFeedback;
+//     setAverage(avg.toFixed(2));
 
+//     const positivePercent = totalFeedback === 0 ? 0 : (good / totalFeedback) * 100;
+//     setPositive(positivePercent.toFixed(2));
+//   }, [good, neutral, bad]);
 
+//   return (
+//     <div>
+//       <h1>give feedback</h1>
+//       <button id="buttonone" onClick={handleGoodClick}>good</button>
+//       <button id="buttontwo" onClick={handleNeutralClick}>neutral</button>
+//       <button id="buttonthree" onClick={handleBadClick}>bad</button>
+//       <h2>Statistics</h2>
+//       <p>Good: {good}</p>
+//       <p>Neutral: {neutral}</p>
+//       <p>Bad: {bad}</p>
+//       <p>All: {all}</p>
+//       <p>Average: {average}</p>
+//       <p>Positive: {positive}%</p>
+//     </div>
+//   );
+// };
 
+// export default App;
+
+//************************************************************************ */
+//Excercise 1.8
+
+//Refactor your application so that displaying the statistics is extracted into its own Statistics component. The state of the application should remain in the App root component.
+
+//Remember that components should not be defined inside other components:
+
+// import React, { useState } from 'react';
+
+// const App = () => {
+//   // save clicks of each button to its own state
+//   const [good, setGood] = useState(0);
+//   const [neutral, setNeutral] = useState(0);
+//   const [bad, setBad] = useState(0);
+
+//   const Statistics = () => {
+//     const all = good + neutral + bad;
+//     const average = all === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / all;
+//     const positive = all === 0 ? 0 : (good / all) * 100;
+
+//     return (
+//       <div>
+//         <h2>Statistics</h2>
+//         <p>Good: {good}</p>
+//         <p>Neutral: {neutral}</p>
+//         <p>Bad: {bad}</p>
+//         <p>All: {all}</p>
+//         <p>Average: {average.toFixed(2)}</p>
+//         <p>Positive: {positive.toFixed(2)}%</p>
+//       </div>
+//     );
+//   };
+
+//   const handleGoodClick = () => {
+//     setGood(good + 1);
+//   };
+
+//   const handleNeutralClick = () => {
+//     setNeutral(neutral + 1);
+//   };
+
+//   const handleBadClick = () => {
+//     setBad(bad + 1);
+//   };
+
+//   return (
+//     <div>
+//       <h1>give feedback</h1>
+//       <button id="buttonone" onClick={handleGoodClick}>good</button>
+//       <button id="buttontwo" onClick={handleNeutralClick}>neutral</button>
+//       <button id="buttonthree" onClick={handleBadClick}>bad</button>
+//       <Statistics />
+//     </div>
+//   );
+// };
+
+// export default App;
 
 
 
