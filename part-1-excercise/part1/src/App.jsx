@@ -204,6 +204,46 @@
 //************************************************************************* */
 
 //Chapter 1 Part D Excercise 1.6
+// import React, { useState } from 'react';
+
+// const App = () => {
+//   // save clicks of each button to its own state
+//   const [good, setGood] = useState(0);
+//   const [neutral, setNeutral] = useState(0);
+//   const [bad, setBad] = useState(0);
+
+//   const handleGoodClick = () => {
+//     setGood(good + 1);
+//   };
+
+//   const handleNeutralClick = () => {
+//     setNeutral(neutral + 1);
+//   };
+
+//   const handleBadClick = () => {
+//     setBad(bad + 1);
+//   };
+
+//   return (
+//     <div>
+//       <h1>give feedback</h1>
+//       <button id="buttonone" onClick={handleGoodClick}>good</button>
+//       <button id="buttontwo" onClick={handleNeutralClick}>neutral</button>
+//       <button id="buttonthree" onClick={handleBadClick}>bad</button>
+//       <h2>Statistics</h2>
+//       <p>Good: {good}</p>
+//       <p>Neutral: {neutral}</p>
+//       <p>Bad: {bad}</p>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//************************************************************************* */
+
+//Chapter 1 Part D Excercise 1.7
+
 import React, { useState } from 'react';
 
 const App = () => {
@@ -211,18 +251,35 @@ const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
+  const [all, setAll] = useState(0);
+  const [average, setAverage] = useState(0);
+  const [positive, setPositive] = useState(0);
 
   const handleGoodClick = () => {
     setGood(good + 1);
+    setAll(all + 1);
   };
 
   const handleNeutralClick = () => {
     setNeutral(neutral + 1);
+    setAll(all + 1);
   };
 
   const handleBadClick = () => {
     setBad(bad + 1);
+    setAll(all +1)
   };
+
+
+  // Calculate average and positive percentage whenever the feedback changes
+  React.useEffect(() => {
+    const totalFeedback = good + neutral + bad;
+    const avg = totalFeedback === 0 ? 0 : (good * 1 + neutral * 0 + bad * -1) / totalFeedback;
+    setAverage(avg.toFixed(2));
+
+    const positivePercent = totalFeedback === 0 ? 0 : (good / totalFeedback) * 100;
+    setPositive(positivePercent.toFixed(2));
+  }, [good, neutral, bad]);
 
   return (
     <div>
@@ -234,11 +291,21 @@ const App = () => {
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
+      <p>All: {all}</p>
+      <p>Average: {average}</p>
+      <p>Positive: {positive}%</p>
     </div>
   );
 };
 
 export default App;
+
+
+
+
+
+
+
 
 //************************************************************************ */
 //Excercise 4.1
