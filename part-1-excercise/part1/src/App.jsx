@@ -524,23 +524,24 @@ const App = () => {
   const [selected, setSelected] = useState(0)
 
   // create a function for event handler
-
+  const handleNextAnecdote = () => {
 
     //use method math.floor to select ancedote from array
     //use method math.random to select random ancedote
     //ancedotes is an array of quotes so use .length property 
 
+    const randomIndex = Math.floor(Math.random() * anecdotes.length)
 
     //use key setSelected to update ancedote
-    
+    setSelected(randomIndex)
   }
 
   return (
     <div>
       {/* input randomIndex function */}
-
+      <button onClick={handleNextAnecdote}>Next Anecdote</button>
       {/* display selected ancedote  */}
-
+      <p>{anecdotes[selected]}</p>
     </div>
   )
 }
