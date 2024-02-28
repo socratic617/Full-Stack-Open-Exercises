@@ -552,6 +552,7 @@
 //************************************************************************ */
 //Excercise 1.13
 
+//Expand your application so that you can vote for the displayed anecdote.
 
 import { useState } from 'react'
 
