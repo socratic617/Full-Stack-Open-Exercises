@@ -550,9 +550,10 @@
 
 
 //************************************************************************ */
-//Excercise 1.13
+//Excercise 1.13 and Excercise 1.14
 
-//Expand your application so that you can vote for the displayed anecdote.
+//Step1: Expand your application so that you can vote for the displayed anecdote.
+//Step2: Now implement the final version of the application that displays the anecdote with the largest number of votes:
 
 import React, { useState } from 'react';
 
