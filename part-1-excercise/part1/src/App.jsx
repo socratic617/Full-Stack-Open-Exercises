@@ -507,6 +507,52 @@
 //step 1: Expand the following application by adding a button that can be clicked to display a random anecdote from the field of software engineering. 
 
 
+// import { useState } from 'react'
+
+// const App = () => {
+//   const anecdotes = [
+//     'If it hurts, do it more often.',
+//     'Adding manpower to a late software project makes it later!',
+//     'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+//     'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+//     'Premature optimization is the root of all evil.',
+//     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
+//     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when dianosing patients.',
+//     'The only way to go fast, is to go well.'
+//   ]
+
+//   const [selected, setSelected] = useState(0)
+
+//   // create a function for event handler
+//   const handleNextAnecdote = () => {
+
+//     //use method math.floor to select ancedote from array
+//     //use method math.random to select random ancedote
+//     //ancedotes is an array of quotes so use .length property 
+
+//     const randomIndex = Math.floor(Math.random() * anecdotes.length)
+
+//     //use key setSelected to update ancedote
+//     setSelected(randomIndex)
+//   }
+
+//   return (
+//     <div>
+//       {/* input randomIndex function */}
+//       <button onClick={handleNextAnecdote}>Next Anecdote</button>
+//       {/* display selected ancedote  */}
+//       <p>{anecdotes[selected]}</p>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+//************************************************************************ */
+//Excercise 1.13
+
+
 import { useState } from 'react'
 
 const App = () => {
@@ -548,9 +594,6 @@ const App = () => {
 
 export default App
 
-
-//************************************************************************ */
-//Excercise 1.13
 
 //************************************************************************ */
 //Excercise 4.1
